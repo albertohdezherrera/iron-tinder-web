@@ -1,19 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import LoginService from '../../services/LoginService'
-import { useHistory } from 'react-router-dom'
+import AuthContext from '../../contexts/AuthContext'
 
 const Login = () => {
-
-  console.log(LoginService)
-  
-  const { push } = useHistory()
 
   const [data, setData] = useState({
     email: '',
     password: '',
-    error: false
+    error: false,
   });
-
+  
+  const { localSetUser } = useContext(AuthContext)
+  
   const { email, password, error } = data
 
   const handleChange = (e) => {
@@ -31,7 +29,7 @@ const Login = () => {
     LoginService.login({ email, password })
       .then(
         user => {
-          push('/feed')
+          localSetUser(user)
         },
         error => {
           console.log(error)
@@ -39,8 +37,6 @@ const Login = () => {
       )
     
   }
-
-  
 
   return (
     <div className="Login">

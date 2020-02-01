@@ -3,11 +3,17 @@ import React, { createContext, useState } from 'react'
 const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')))
+
+  const localSetUser = (currentUser) => {
+    localStorage.setItem('user', currentUser ? JSON.stringify(currentUser) : null )
+    setUser(currentUser)
+  }
 
   const value = {
     currentUser: user,
-    setUser: setUser
+    localSetUser: localSetUser
   }
 
   return (
@@ -16,6 +22,8 @@ export const AuthContextProvider = ({ children }) => {
     </AuthContext.Provider>
   )
 }
+
+
 
 
 export default AuthContext
