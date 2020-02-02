@@ -1,4 +1,10 @@
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background: #FAFCFC;
   margin: 0;
@@ -12,4 +18,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid red;
 }

@@ -4,6 +4,7 @@ import Login from './components/users/Login'
 import Feed from './components/users/Feed'
 import AuthenticatedRoute from './components/misc/AuthenticatedRoute'
 import NotAuthenticatedRoute from './components/misc/NotAuthenticatedRoute'
+import Register from './components/users/Register'
 
 
 function App() {
@@ -12,6 +13,10 @@ function App() {
       <Switch>
         <NotAuthenticatedRoute exact path="/login">
           <Login />
+        </NotAuthenticatedRoute>
+
+        <NotAuthenticatedRoute exact path="/register">
+          <Register />
         </NotAuthenticatedRoute>
 
         <AuthenticatedRoute exact path="/feed">
