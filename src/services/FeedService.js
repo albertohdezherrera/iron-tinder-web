@@ -1,5 +1,5 @@
 import axios from 'axios'
-import User from '../data/user.json'
+import Users from '../data/getUsers.json'
 
 const http =  axios.create({
   baseURL: 'https://tweet-hack-api.herokuapp.com',
@@ -10,7 +10,7 @@ const http =  axios.create({
 const getUsers = (body) => (
   new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(User)
+      resolve(Users)
     }, 500);
   })
 )

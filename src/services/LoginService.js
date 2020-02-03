@@ -11,7 +11,7 @@ const http =  axios.create({
 const login = ({ email, password }) => (
   new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(User)
+      reject(User)
     }, 500);
   })
 )

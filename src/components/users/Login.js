@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import LoginService from '../../services/LoginService'
 import AuthContext from '../../contexts/AuthContext'
+import './users.css'
 
 const Login = () => {
 
@@ -43,11 +44,16 @@ const Login = () => {
 
   return ( 
     <div className="Login">
-      <img src="" />
+      <div className="Login__logo">
+        <i className="fas fa-fire"></i>
+        <span><b>tinder</b>hack</span>
+      </div>
+      
       { error && <span>Ups! Invalid email or password</span>}
+      
       <form onSubmit={handleSubmit}>
-        <input type="text" name="email" value={email}  onChange={handleChange}/>
-        <input type="password" name="password" value={password} onChange={handleChange} />
+        <input type="text" name="email" placeholder="Email" value={email}  onChange={handleChange}/>
+        <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} />
         <button type="submit">Log in</button>
       </form>
     </div>

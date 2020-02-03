@@ -1,24 +1,41 @@
 import React, { useContext, useState, useEffect } from 'react'
 import AuthContext from '../../contexts/AuthContext'
 import Header from '../misc/Header'
+import FeedService from '../../services/FeedService'
 
 const Feed = () => {
+  const { currentUser } = useContext(AuthContext)
 
-  const [nearUsers, setNearUsers] = useState({});
+  const [nearUsers, setNearUsers] = useState({
+    users: '',
+    loading: true,
+    error: false
+  });
 
   useEffect(() => {
-    console.log('will unmount');
+    FeedService.getUsers()
+      .then(user => {
+        setNearUsers({
+          users: user,
+          loading: false
+        })
+      },
+      error => {
+        setNearUsers({
+          ...nearUsers,
+          loading: false,
+          error: true
+        })
+      })
   }, []);
 
-  const { currentUser } = useContext(AuthContext)
 
   return (
     <div>
-       <Header />
-      <h1>Hola {currentUser.name}</h1>
+      <Header />
+      {nearUsers.loading && <h1>se esta cargando</h1>}
+      {nearUsers.error && <h1>hay un error</h1>}
     </div>
-   
-
   )
 }
 
