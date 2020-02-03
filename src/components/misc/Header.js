@@ -1,11 +1,11 @@
 import React from 'react'
 import './Header.css'
 
-const Header = ({ user }) => {
+const Header = () => {
   return (
     <header className="Header">
-      <h1>{user.name}</h1>
-      <img src="https://fakeimg.pl/180x60/" />
+      <i className="fas fa-fire"></i>
+      <span><b>tinder</b>hack</span>
     </header>
   )
 }

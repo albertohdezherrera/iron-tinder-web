@@ -32,15 +32,19 @@ const Login = () => {
           localSetUser(user)
         },
         error => {
-          console.log(error)
+          setData({
+            ...data,
+            error: true
+          })
         }
       )
     
   }
 
-  return (
+  return ( 
     <div className="Login">
       <img src="" />
+      { error && <span>Ups! Invalid email or password</span>}
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" value={email}  onChange={handleChange}/>
         <input type="password" name="password" value={password} onChange={handleChange} />

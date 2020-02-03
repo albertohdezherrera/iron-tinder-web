@@ -1,4 +1,17 @@
 .Header {
   text-align: center;
-  padding: 10px;
+  padding: 24px;
+  font-size: 22px;
+  line-height: 24px;
+  background: linear-gradient(174.01deg, #00DA71 0%, #2CCCFF 95.99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+.Header .fas.fa-fire {
+  margin-right: 10px;
+}
+.Header .fas.fa-fire::before {
+  background: linear-gradient(174.01deg, #00DA71 0%, #2CCCFF 95.99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} 
